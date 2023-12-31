@@ -6,13 +6,15 @@ import Cards from "../../Components/Cards";
 
 
 function TextPage() {
+  const { id } = useParams()
+  const picture = JSON.find(item => item.id === id).url
     
     return (
         <div className="App">
             <h1>Text from pictures</h1>
-           
+            <img src={picture} />
         </div>
     )
 }
 
-export default TextPage() 
+export default TextPage 
