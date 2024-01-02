@@ -3,3 +3,5 @@ Idées:
 -hover sur image en page gallerie.
 -ameliorer le reponsive en page carousel.
 -texte dynamique en textpage.
+-rendre le carousel animé.
+-Possibilité de poster.
