@@ -5,7 +5,7 @@ const slideStyles = {
   height: "100%",
   borderRadius: "10px",
   backgroundSize: "cover",
-  backgroundPosition: "center",
+  backgroundPosition: "contain",
 };
 
 const rightArrowStyles = {

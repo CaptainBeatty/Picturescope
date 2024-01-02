@@ -1,7 +1,6 @@
 import React from "react";
 import Cards from '../../Components/Cards';
-import { NavLink } from "react-router-dom";
-//import "../../Styles/GalleryPage.css"
+import "../../Styles/GalleryPage.css"
 
 
 function GalleryPage() {

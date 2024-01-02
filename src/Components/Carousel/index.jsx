@@ -7,8 +7,8 @@ const App = () => {
   const slides = JSON;
 
   return (
-    <div>
-      <div className="container">
+    <div className="container">
+      <div className="slider">
         <ImageSlider slides={slides} />
       </div>
     </div>
