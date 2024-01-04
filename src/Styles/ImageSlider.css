@@ -5,13 +5,16 @@
   align-items: center;
   height: 100%;
   width: auto;
+
+  
 }
 
 .slider{
   
   width: 1100px;
   height: 750px;
-  margin: 10px auto;
+  
+  
 }
 
 /*Desktop*/
@@ -28,11 +31,12 @@
 /*Large Laptop*/
 @media only screen and (max-width: 1440px) {
   .container{
-    height: 80vh;
+    height: 75vh;
   }
   .slider {
-      height: 75vh;
-      width: 90%;
+      height: 95%;
+      width: 70%;
+      
   }
 }
 
@@ -72,5 +76,29 @@
   .slider {
     height: 98%;
     width: 95%;  
+  }
+}
+/*Smallheightscreen*/
+@media only screen and (max-height: 600px) {
+
+  .container{
+    height: 70vh;
+  }
+  .slider {
+    height: 75%;
+    width: 70%;  
+    
+  }
+}
+
+@media only screen and (max-height: 500px) {
+
+  .container{
+    height: 65vh;
+  }
+  .slider {
+    height: 75%;
+    width: 70%;  
+    
   }
 }
