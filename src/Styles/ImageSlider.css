@@ -3,27 +3,74 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 450px;
+  height: 100%;
+  width: auto;
 }
 
-@media (max-width: 1400px) {
+.slider{
+  
+  width: 1100px;
+  height: 750px;
+  margin: 10px auto;
+}
 
+/*Desktop*/
+@media only screen and (min-width: 1440px) {
+  .container{
+    height: 80vh;
+  }
   .slider {
-      width: 850px;
-      height: 400px;
-      
+      height: 80vh;
+      width: 65%;
   }
 }
 
-@media (min-width: 1400px) {
-
-  .container{ 
-    height: 750px;
+/*Large Laptop*/
+@media only screen and (max-width: 1440px) {
+  .container{
+    height: 80vh;
   }
+  .slider {
+      height: 75vh;
+      width: 90%;
+  }
+}
+
+/*TabletLandscape*/
+@media only screen and (max-width: 1024px) {
 
   .slider {
-      width: 1100px;
-      height: 700px;
-      margin: 30px auto;
+    height: 90%;
+    width: 90%;  
+  }
+}
+
+/*Tablet*/
+@media only screen and (max-width: 768px) {
+
+  .container{
+    height: 85vh;
+  }
+  .slider {
+    height: 90%;
+    width: 90%;  
+  }
+}
+
+/*MobileL*/
+@media only screen and (max-width: 425px) {
+
+  .slider {
+    height: 98%;
+    width: 95%;  
+  }
+}
+
+/*MobileM*/
+@media only screen and (max-width: 375px) {
+
+  .slider {
+    height: 98%;
+    width: 95%;  
   }
 }

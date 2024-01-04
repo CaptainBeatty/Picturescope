@@ -3,7 +3,7 @@ import '../../Styles/ImageSlider.css';
 import JSON from "../../JSON/Pictures.json";
 
 
-const App = () => {
+const Carousel = () => {
   const slides = JSON;
 
   return (
@@ -15,4 +15,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Carousel;

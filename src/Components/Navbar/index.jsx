@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../../Styles/navigation.css"
+//import { CButtonGroup, CDropdownToggle, CDropdown, CDropdownMenu, CDropdownItem, CDropdownDivider} from '@coreui/react';
+
 
 
 function Navbar() {
@@ -21,6 +23,23 @@ function Navbar() {
                     Login
                 </NavLink>
             </div>
+            {/*<div>
+            <CButtonGroup role="group" aria-label="Button group with nested dropdown">
+                <CDropdown variant="btn-group">
+                    <CDropdownToggle color="primary">
+                        Dropdown
+                    </CDropdownToggle>
+                    <CDropdownMenu>
+                        <CDropdownItem href="#">
+                            Action
+                        </CDropdownItem>
+                        <CDropdownItem href="#">
+                            Another action
+                        </CDropdownItem>
+                    </CDropdownMenu>
+                </CDropdown>
+            </CButtonGroup>
+    </div>*/}
         </div>
     )
 }

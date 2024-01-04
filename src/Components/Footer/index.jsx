@@ -6,10 +6,14 @@ function Footer() {
     return (
         <>
         <div className="Footer">
-            <div className="copyright">© 2023 PictureScope. All rights reserved</div>
-                <a className="contact" href="mailto:picturescope@gmail.com">Contact
+            <div className="copyright">
+                <p>© 2023 PictureScope. All rights reserved</p>
+            </div>
+            <div className="contact" >
+                <a href="mailto:picturescope@gmail.com">Contact
                 </a>
             </div>
+        </div>
         </>
     )
 }

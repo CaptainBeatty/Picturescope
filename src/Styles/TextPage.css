@@ -5,6 +5,7 @@
     flex-direction: column;
     text-align: center;
     height: 450px;
+    
 
 }
 
@@ -15,6 +16,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 850px;
 }
 
 .PictureTxt h1 {
