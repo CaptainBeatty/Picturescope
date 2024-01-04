@@ -28,5 +28,33 @@
 
 .contact a:hover{
     font-weight: 500;
+    font-size: larger;
 }
 
+/*IphoneSE1*/
+@media only screen and (max-width: 375px){
+
+    .Footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #7d8491;
+        width: 100%;
+        font-size: 15px;
+        font-style: italic;
+        position: fixed;
+        left:0;
+        bottom:0;
+        right:0;
+        
+    }
+  }
+  @media only screen and (max-width: 325px) {
+    .Footer {
+        
+        font-size: 12px;
+        font-style: italic;
+        
+    }
+  }

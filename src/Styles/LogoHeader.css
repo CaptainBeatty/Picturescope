@@ -35,3 +35,20 @@
     justify-content: flex-end;
     width: 100%;
 }
+
+ a:hover h1{
+    
+    font-weight: 800;
+}
+
+@media only screen and (max-width: 375px){
+
+    .center-logo h1 {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+  
+  }

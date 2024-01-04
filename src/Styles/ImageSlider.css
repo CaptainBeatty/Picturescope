@@ -3,9 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 800px;
   width: auto;
-
   
 }
 
@@ -23,7 +22,7 @@
     height: 80vh;
   }
   .slider {
-      height: 80vh;
+      height: 75vh;
       width: 65%;
   }
 }
@@ -73,12 +72,27 @@
 /*MobileM*/
 @media only screen and (max-width: 375px) {
 
+ 
   .slider {
     height: 98%;
     width: 95%;  
+    margin-top: 5%;
   }
 }
-/*Smallheightscreen*/
+
+/*MobileS*/
+@media only screen and (max-width: 375px) {
+
+ 
+  .slider {
+    height: 98%;
+    width: 95%;  
+    margin-top: 10%;
+  }
+}
+
+
+/*VerySmallheightscreen*/
 @media only screen and (max-height: 600px) {
 
   .container{
@@ -99,6 +113,21 @@
   .slider {
     height: 75%;
     width: 70%;  
+    
+  }
+}
+
+/*Smallheightscreen*/
+@media only screen and (max-height: 840px){
+
+  .container{
+    height: 80vh;
+    
+  }
+  
+  .slider {
+    height: 90%;
+    width:95%;  
     
   }
 }
