@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   overflow: auto;
-  height: 900px;
+  height: 655px;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-color: transparent transparent; /*just hides the scrollbar for firefox */
     ::-webkit-scrollbar { 
@@ -17,4 +17,25 @@
     display: none;
   }
    
+/*Large Laptop*/
+@media only screen and (max-width: 1440px) {
+  .App {
+    
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-color: transparent transparent; /*just hides the scrollbar for firefox */
+      ::-webkit-scrollbar { 
+      display: none;  /* Safari and Chrome */
+      }
+  }
+}
+@media only screen and (max-height: 850px) {
+  .App {
+    height: 80vh;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-color: transparent transparent; /*just hides the scrollbar for firefox */
+      ::-webkit-scrollbar { 
+      display: none;  /* Safari and Chrome */
+      }
+  }
+}
   

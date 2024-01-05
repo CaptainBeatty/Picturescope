@@ -6,6 +6,7 @@
   height: 800px;
   width: auto;
   
+  
 }
 
 .slider{
@@ -119,11 +120,6 @@
 
 /*Smallheightscreen*/
 @media only screen and (max-height: 840px){
-
-  .container{
-    height: 80vh;
-    
-  }
   
   .slider {
     height: 90%;
@@ -131,3 +127,18 @@
     
   }
 }
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height: 667px){
+
+      .container{
+        height: 500px;
+      }
+      .slider {
+        
+        width: 80%;  
+        
+      }
+
+    }
