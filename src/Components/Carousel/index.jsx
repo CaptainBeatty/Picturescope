@@ -1,6 +1,7 @@
-import ImageSlider from "../ImageSlider";
+import ImageSlider from "../ImageSlider/index.jsx";
 import '../../Styles/ImageSlider.css';
 import JSON from "../../JSON/Pictures.json";
+//import {data} from "../../Data/index.js";
 
 
 const Carousel = () => {
