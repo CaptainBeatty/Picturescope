@@ -117,33 +117,15 @@
   }
   
   /*MobileS*/
-  @media only screen and (max-width: 375px) {
-  
-   
-  }
-  
-  
-  /*VerySmallheightscreen*/
-  @media only screen and (max-height: 600px) {
-  
-   
-  }
-  
-  @media only screen and (max-height: 500px) {
-  
-   
-  }
-  
-  /*Smallheightscreen*/
-  @media only screen and (max-height: 840px){
+  @media only screen and (max-width: 320px) {
+    .PictureTxt img{
+        height: 50vh;
+        width: 300px;
+    }
+    .Picture {
+        height: 300px;
+    }
     
-   
   }
-  
-  @media only screen 
-      and (device-width : 375px) 
-      and (device-height: 667px){
-  
-       
-  
-      }
+
+
