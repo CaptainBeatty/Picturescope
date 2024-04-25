@@ -1,5 +1,5 @@
 import React from "react";
-import Carousel from '../../Components/Carousel';
+import Cards from '../../Components/Cards';
 import '../../Styles/Main.css';
 
 
@@ -8,7 +8,7 @@ import '../../Styles/Main.css';
 function Main() {
   return (
     <div>
-      <Carousel/>
+      <Cards />
     </div>
   );
   }

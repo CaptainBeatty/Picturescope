@@ -1,39 +1,60 @@
-import beach from '../assets/image-1.jpg'
-import boat from '../assets/image-2.jpg'
-import forest from '../assets/image-3.jpg'
-import city from '../assets/image-4.jpg'
-import italy from '../assets/image-5.jpg'
+import { useState, useEffect } from 'react'
+import Card from '../Components/Card'
 
-export const data = [
 
-    { 
-        id: "c67ab8a7", 
-        cover: beach, 
-        title: "beach", 
-        description: "C'était une belle balade. Il y avait le soleil...et Ksenia."
-    },
+function Data() {
 
-    {
-         id: "c1515181", 
-         cover: boat, 
-         title: "boat", 
-         description: "C'était une belle balade. Il y avait le soleil...et Svetlana."
-    },
-    {
-         id: "j15151j5", 
-         cover: forest,
-         title: "forest", 
-         description: "C'était une belle balade. Il y avait le soleil...et Anastasia." 
-    },
-    { 
-        id: "b154t566", 
-        cover: city, 
-        title: "city", 
-        description: "C'était une belle balade. Il y avait le soleil...et Alexandra." 
-    },
-    {   id: "er1515z1", 
-        cover: italy, 
-        title: "italy", 
-        description: "C'était une belle balade. Il y avait le soleil...et Katerina."
-     },
-   ]
+    const [picturesList, setPicturesList] = useState([])
+    const [isDataLoading, setDataLoading] = useState(false)
+    const [error, setError] = useState(false)
+
+
+    useEffect(() => {
+        async function fetchFreelances() {
+            setDataLoading(true)
+            try {
+                const response = await fetch(`http://localhost:8000/pictures`)
+                const { picturesList } = await response.json()
+                setPicturesList(picturesList)
+            }
+            catch(err) {
+                console.log('===== error =====', err)
+                setError(true)
+            }
+            finally {
+                setDataLoading(false)
+            }
+        }
+        fetchFreelances()
+    }, [])
+
+    if (error) {
+        return <span>Oups, il y eu un problème</span>
+    }
+
+    return (
+        <div>
+            <div>Trouvez votre prestataire</div>
+            <div>Chez Shiny nous réunissons les meilleurs profils pour vous.</div>
+            {isDataLoading ? (
+                <div>
+                    <p>Chargement en cours</p>
+                </div>
+        ) : (
+            <div>
+            {picturesList.map((profile, index) => (
+                <Card
+                key={`${profile.title}-${index}`}
+                title={profile.title}
+                picture={profile.url}
+                
+            />
+            ))}
+            </div>
+        )}
+            
+        </div>
+    )
+}
+
+export default Data;

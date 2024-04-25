@@ -1,25 +1,24 @@
 
+.over{
+    height: 500px;
+    overflow: scroll;
+}
+
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(4, auto);
     grid-gap: 15px;
     justify-items: center;
-    border-radius: 25px;
+    border-radius: 10px;
     background-color: white;
-    padding: 15px 250px 15px;
-    height: 600px;
-    
+    padding: 15px 10px 15px;
 }
 
-.card {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    
-    
-}
+
 
 .card p {
+    display: flex;
+    justify-content: center;
     position: absolute;
     font-size: 20px;
     font-style: italic;
@@ -34,6 +33,7 @@
     position: relative;
     border-radius: 10px;
     object-fit: cover;
+    
 }
 
 .card :hover {
@@ -41,15 +41,52 @@
 }
 
 
+.galery p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+}
+
+.cardwrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: #e2e2e2;
+    border-radius: 10px;
+    transition: 200ms;
+}
+
+.cardwrapper:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 15px #e2e3e9;
+}
+
+.cardwrapper img{
+    border-radius: 10px;
+    height: 300px;
+    width: 400px;
+}
+
+
 
 /*Desktop*/
 @media only screen and (min-width: 1440px) {
+    .over{
+        height: 800px;
+    }
+
     .cards {
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: repeat(4, auto);
         grid-gap: 10px;
         background-color: white;
-        padding: 50px 150px;
-        overflow: auto;
         padding: 15px 20px 10px;  
     }
 
@@ -57,7 +94,7 @@
         width: 400px;
         height: 300px;
         position: relative;
-        border-radius: 10px;
+        border-radius: 20px;
         object-fit: cover;
     }
 
@@ -71,10 +108,10 @@
         grid-template-columns: repeat(3, auto);
         grid-gap: 15px;
         justify-items: center;
-        border-radius: 25px;
+        border-radius: 15px;
         background-color: white;
-        padding: 750px 50px 15px;   
-        height: 190%;
+        padding: 10px 10px 15px;   
+        
     }
     .card img {
         width: 325px;

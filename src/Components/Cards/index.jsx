@@ -1,22 +1,23 @@
-import { Link } from "react-router-dom";
-import JSON from "../../JSON/Pictures.json";
 import "../../Styles/Card.css";
 import { useState, useEffect } from 'react'
+import Card from '../../Components/Card'
+
 
 
 function Cards() {
 
-    const [cardsList, setCards] = useState([])
+    const [picturesList, setPicturesList] = useState([])
     const [isDataLoading, setDataLoading] = useState(false)
     const [error, setError] = useState(false)
 
+
     useEffect(() => {
-        async function fetchCards() {
+        async function fetchFreelances() {
             setDataLoading(true)
             try {
-                const response = await fetch(`http://localhost:8000/freelances`)
-                const { cardsList } = await response.json()
-                setCards(cardsList)
+                const response = await fetch(`http://localhost:8000/pictures`)
+                const { picturesList } = await response.json()
+                setPicturesList(picturesList)
             }
             catch(err) {
                 console.log('===== error =====', err)
@@ -26,7 +27,7 @@ function Cards() {
                 setDataLoading(false)
             }
         }
-        fetchCards()
+        fetchFreelances()
     }, [])
 
     if (error) {
@@ -34,18 +35,28 @@ function Cards() {
     }
 
     return (
-        <div className="cards">
-            {cardsList.map ((profile, index) => (
-                <div>
-                key={`${profile.name}-${index}`}
-                label={profile.job}
-                picture={profile.picture}
-                title={profile.name}
+        <div className="over">
+            <h1>Mes clichés</h1>
+            
+            {isDataLoading ? (
+                <div className="galery">
+                    <p>Chargement en cours</p>
                 </div>
+        ) : (
+            <div className="cards">
+            {picturesList.map((profile, index) => (
+                <Card
+                key={`${profile.title}-${index}`}
+                title={profile.title}
+                url={profile.url}
+                
+            />
             ))}
-        </div> 
+            </div>
+        )}
+            
+        </div>
     )
 }
-
 
 export default Cards;

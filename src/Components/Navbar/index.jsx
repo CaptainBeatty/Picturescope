@@ -13,7 +13,7 @@ function Navbar() {
             
             <div className="nav-links">
                 <NavLink exact to
-                    ="/GalleryPage" activeClassName="active"
+                    ="/" activeClassName="active"
                 >
                     Gallery
                 </NavLink>
