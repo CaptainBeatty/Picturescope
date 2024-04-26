@@ -1,6 +1,7 @@
 import "../../Styles/Card.css";
 import { useState, useEffect } from 'react'
 import Card from '../../Components/Card'
+import { Link } from 'react-router-dom';
 
 
 
@@ -45,12 +46,12 @@ function Cards() {
         ) : (
             <div className="cards">
             {picturesList.map((profile, index) => (
+                <Link to="/textpage" key={`${profile.title}-${index}`} style={{ textDecoration: 'none' }}>
                 <Card
-                key={`${profile.title}-${index}`}
-                title={profile.title}
-                url={profile.url}
-                
-            />
+                  title={profile.title}
+                  url={profile.url}
+                />
+              </Link>
             ))}
             </div>
         )}

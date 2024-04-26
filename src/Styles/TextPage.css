@@ -18,7 +18,7 @@
 }
 
 .PictureTxt h1 {
-    color: #f6f6f6;
+    color: black;
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -33,7 +33,7 @@
     font-style: italic;
     font-weight: 700;
     bottom: 30px;
-    color: #f6f6f6;
+    color: black;
 }
 
 .PictureTxt img {
