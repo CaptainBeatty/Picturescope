@@ -4,49 +4,12 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    height: 690px;
-}
-
-.PictureTxt {
+    height: 800px;
     
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 850px;
 }
 
-.PictureTxt h1 {
-    color: black;
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    font-style: italic;
-    top: 10px;
 
-}
 
-.PictureTxt p {
-    position: absolute;
-    font-size: 20px;
-    font-style: italic;
-    font-weight: 700;
-    bottom: 30px;
-    color: black;
-}
-
-.PictureTxt img {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1200px;
-    height: 650px;
-    position: relative;
-    border-radius: 10px;
-    object-fit: cover;
-}
 
 /*Desktop*/
 /*@media only screen and (min-width: 1440px) {

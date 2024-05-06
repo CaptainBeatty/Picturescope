@@ -45,12 +45,14 @@ function Cards() {
                 </div>
         ) : (
             <div className="cards">
-            {picturesList.map((profile, index) => (
-                <Link to="/textpage" key={`${profile.title}-${index}`} style={{ textDecoration: 'none' }}>
+            {picturesList?.map((image) => (
+                <Link key ={`picture-${image.id}`}to={`/textpage/${image.id}` }
+                
+                style={{ textDecoration: 'none' }}>
                 <Card
-                  title={profile.title}
-                  url={profile.url}
-                />
+                  title={image.title}
+                  url={image.url}
+            />
               </Link>
             ))}
             </div>
