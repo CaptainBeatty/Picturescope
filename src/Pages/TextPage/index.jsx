@@ -1,13 +1,8 @@
 import "../../Styles/TextPage.css"
-import styled from 'styled-components'
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Card from '../../Components/Card'
 
-const Picture = styled.img`
-  height: 150px;
-  width: 150px;
-  border-radius: 75px;`
+
 
 function TextPage() {
 
@@ -43,8 +38,8 @@ function TextPage() {
     } = pictureData
   
     return (
-      <div className="Picture">
-          <img src={url} alt={description} height={700} width={1250} />
+      <div className="Picture" >
+          <img src={url} alt={description} />
      </div>
     )
   }

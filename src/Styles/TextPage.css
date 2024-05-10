@@ -4,36 +4,54 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    height: 800px;
+    height: 1100px;
+    
+}
+
+.Picture img{
+   border-radius: 10px;
     
 }
 
 
 
-
 /*Desktop*/
-/*@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
     .Picture {
        
         height: 750px;
     
     }
-    .PictureTxt img{
+    .Picture img{
         height: 650px;
+        width: 1200px;
     }
-}*/
+}
    /*Large Laptop*/
   @media only screen and (max-width: 1440px) {
     .Picture {
-        height: 700px;
+        height: 500px;
     }
-    .PictureTxt img{
-        height: 600px;
-        width: 110%;
+    .Picture img{
+        height: 415px;
+        width: 900px;
+        
+    }
+  }
+
+  /*Laptop*/
+  @media only screen and (max-width: 1024px) {
+    .Picture {
+        height: 400px;
+    }
+    .Picture img{
+        height: 350px;
+        width: 800px;
+        
     }
   }
   
-  /*TabletLandscape*/
+  /* TabletLandscape
   @media only screen and (max-width: 1024px) {
     .Picture {
         height: 700px;
@@ -43,7 +61,7 @@
         width: 85%;
     }
    
-  }
+  } */
   
   /*Tablet*/
   @media only screen and (max-width: 768px) {
@@ -65,7 +83,7 @@
   
   /*MobileL*/
   @media only screen and (max-width: 425px) {
-    .PictureTxt img{
+    .Picture img{
         height: 600px;
         width: 40%;
     }
@@ -73,15 +91,19 @@
   
   /*MobileM*/
   @media only screen and (max-width: 375px) {
-    .PictureTxt img{
-        height: 600px;
-        width: 300px;
+
+    .Picture{
+        height: 450px;
+    }
+    .Picture img{
+        height: 400px;
+        width: 350px;
     }
   }
   
   /*MobileS*/
   @media only screen and (max-width: 320px) {
-    .PictureTxt img{
+    .Picture img{
         height: 50vh;
         width: 300px;
     }
