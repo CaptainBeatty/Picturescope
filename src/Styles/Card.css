@@ -153,7 +153,7 @@ h1 {
         height: 90%;
     }
     .card img {
-        width: 500px;
+        width: 310px;
         height: 400px;
     }
     
@@ -178,7 +178,7 @@ h1 {
         padding: 10px 5px 5px;
     }
     .card img {
-        width: 350px;
+        width: 300px;
         height: 220px;
     }
     
@@ -199,18 +199,14 @@ h1 {
   }
   
   /*MobileS*/
-  @media only screen and (max-width: 325px) {
-    .cards {
-       
-        padding: 20px 5px 5px;
-        height: 100%;
-    }
-    .card img {
-        width: 95%;
-        height: 250px;
-    }
+   @media only screen and (max-width: 325px) {
+    .cardwrapper img{
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+}
   }
-  
+   
   
   /*VerySmallheightscreen*/
   @media only screen and (max-height: 600px) {
