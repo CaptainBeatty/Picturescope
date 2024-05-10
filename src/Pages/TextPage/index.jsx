@@ -29,7 +29,7 @@ function TextPage() {
     const { id: queryId } = useParams()
     const [pictureData, setPictureData] = useState({})
     useEffect(() => {
-      fetch(`http://localhost:8000/picture?id=${queryId}`)
+      fetch(`https://picturescope-api.onrender.com/picture?id=${queryId}`)
         .then((response) => response.json())
         .then((jsonResponse) => {
           setPictureData(jsonResponse?.pictureData)

@@ -16,7 +16,7 @@ function Cards() {
         async function fetchFreelances() {
             setDataLoading(true)
             try {
-                const response = await fetch(`http://localhost:8000/pictures`)
+                const response = await fetch(`https://picturescope-api.onrender.com/pictures`)
                 const { picturesList } = await response.json()
                 setPicturesList(picturesList)
             }
