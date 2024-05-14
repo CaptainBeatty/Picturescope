@@ -1,6 +1,6 @@
 
 .over{
-    height: 500px;
+    
     overflow: scroll;
 }
 
@@ -81,7 +81,7 @@ h1 {
 /*Desktop*/
 @media only screen and (min-width: 1440px) {
     .over{
-        height: 800px;
+        height: 750px;
     }
 
     .cards {
@@ -104,6 +104,9 @@ h1 {
   
   /*Large Laptop*/
   @media only screen and (max-width: 1440px) {
+    .over{
+        height: 500px;
+    }
     .cards {
         display: grid;
         grid-template-columns: repeat(3, auto);
@@ -119,24 +122,22 @@ h1 {
         height: 250px;
     }
   }
-  
-  /*TabletLandscape*/
+
+  /*Laptop*/
   @media only screen and (max-width: 1024px) {
-  
+
+    .over{
+        height: 700px;
+    }
     .cards {
         display: grid;
         grid-template-columns: repeat(2, auto);
         grid-gap: 15px;
         justify-items: center;
-        border-radius: 25px;
+        border-radius: 15px;
         background-color: white;
-        padding: 750px 5px 15px;
+        padding: 10px 10px 15px;   
         
-        
-    }
-    .card img {
-        width: 320px;
-        height: 175px;
     }
   }
   
@@ -149,12 +150,13 @@ h1 {
         justify-items: center;
         border-radius: 25px;
         background-color: white;
-        padding: 100px 10px 5px;
+        padding: 50px 10px 5px;
         height: 90%;
     }
-    .card img {
-        width: 310px;
+    .cardwrapper img{
+        border-radius: 10px;
         height: 400px;
+        width: 550px;
     }
     
   }
@@ -177,9 +179,10 @@ h1 {
        
         padding: 10px 5px 5px;
     }
-    .card img {
-        width: 300px;
-        height: 220px;
+    .cardwrapper img{
+        border-radius: 10px;
+        height: 300px;
+        width: 350px;
     }
     
   }
@@ -190,12 +193,12 @@ h1 {
        
         padding: 20px 5px 5px;
     }
-    .card img {
-        width: 250px;
-        height: 150px;
+    .cardwrapper img{
+        border-radius: 10px;
+        height: 300px;
+        width: 350px;
     }
-   
-    
+
   }
   
   /*MobileS*/
@@ -208,19 +211,4 @@ h1 {
   }
    
   
-  /*VerySmallheightscreen*/
-  @media only screen and (max-height: 600px) {
   
-   
-  }
-  
-  @media only screen and (max-height: 500px) {
-  
-  
-  }
-  
-  /*Smallheightscreen*/
-  @media only screen and (max-height: 840px){
-  
-  
-  }

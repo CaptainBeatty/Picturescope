@@ -13,8 +13,6 @@
     
 }
 
-
-
 /*Desktop*/
 @media only screen and (min-width: 1440px) {
     .Picture {
@@ -42,50 +40,40 @@
   /*Laptop*/
   @media only screen and (max-width: 1024px) {
     .Picture {
-        height: 400px;
+        height: 720px;
     }
     .Picture img{
-        height: 350px;
-        width: 800px;
+        height: 600px;
+        width: 900px;
         
     }
   }
   
-  /* TabletLandscape
-  @media only screen and (max-width: 1024px) {
-    .Picture {
-        height: 700px;
-    }
-    .PictureTxt img{
-        height: 650px;
-        width: 85%;
-    }
-   
-  } */
+  
   
   /*Tablet*/
   @media only screen and (max-width: 768px) {
-    .PictureTxt img{
-        height: 650px;
-        width: 50%;
+    .Picture {
+        height: 675px;
+        
     }
-    .PictureTxt p {
-        position: absolute;
-        font-size: 10px;
-        font-style: italic;
-        font-weight: 700;
-        bottom: 40px;
-        color: #f6f6f6;
-        width: 550px;
+    .Picture img{
+        height: 600px;
+        width: 700px;
+        
     }
    
   }
   
   /*MobileL*/
   @media only screen and (max-width: 425px) {
+
+    .Picture{
+        height: 500px;
+    }
     .Picture img{
-        height: 600px;
-        width: 40%;
+        height: 400px;
+        width: 400px;
     }
   }
   
@@ -96,19 +84,21 @@
         height: 450px;
     }
     .Picture img{
-        height: 400px;
+        height: 350px;
         width: 350px;
     }
   }
   
   /*MobileS*/
   @media only screen and (max-width: 320px) {
-    .Picture img{
-        height: 50vh;
-        width: 300px;
-    }
+
     .Picture {
+        height: 400px;
+    }
+    
+    .Picture img{
         height: 300px;
+        width: 300px;
     }
     
   }
