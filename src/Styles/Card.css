@@ -175,6 +175,9 @@ h1 {
   
   /*MobileL*/
   @media only screen and (max-width: 425px) {
+    .over{
+        height: 400px;
+    }
     .cards {
        
         padding: 10px 5px 5px;
@@ -189,23 +192,29 @@ h1 {
   
   /*MobileM*/
   @media only screen and (max-width: 375px) {
+    .over{
+        height: 400px;
+    }
     .cards {
        
         padding: 20px 5px 5px;
     }
     .cardwrapper img{
         border-radius: 10px;
-        height: 300px;
-        width: 350px;
+        height: 275px;
+        width: 325px;
     }
 
   }
   
   /*MobileS*/
    @media only screen and (max-width: 325px) {
+    .over{
+        height: 300px;
+    }
     .cardwrapper img{
     border-radius: 10px;
-    height: 300px;
+    height: 250px;
     width: 300px;
 }
   }
