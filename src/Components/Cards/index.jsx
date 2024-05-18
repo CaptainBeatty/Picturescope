@@ -1,43 +1,35 @@
 import "../../Styles/Card.css";
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import Card from '../../Components/Card'
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
+const Cards = () => {
+  const [entries, setEntries] = useState([]);
+  const [isDataLoading, setDataLoading] = useState(false)
+  const [error, setError] = useState(false)
 
-
-function Cards() {
-
-    const [picturesList, setPicturesList] = useState([])
-    const [isDataLoading, setDataLoading] = useState(false)
-    const [error, setError] = useState(false)
-
-
-    useEffect(() => {
-        async function fetchFreelances() {
-            setDataLoading(true)
-            try {
-                const response = await fetch(`https://picturescope-api.onrender.com/pictures`)
-                const { picturesList } = await response.json()
-                setPicturesList(picturesList)
-            }
-            catch(err) {
-                console.log('===== error =====', err)
+  useEffect(() => {
+    const fetchEntries = async () => {
+        setDataLoading(true)
+      try {
+        const response = await fetch('http://localhost:8000/pictures');
+        const data = await response.json();
+        setEntries(data);
+      } catch (error) {
+        console.log('===== error =====', error)
                 setError(true)
-            }
-            finally {
-                setDataLoading(false)
-            }
-        }
-        fetchFreelances()
-    }, [])
+      }
+      finally {setDataLoading(false)}
+    };
 
-    if (error) {
-        return <span>Oups, il y eu un problème</span>
-    }
+    fetchEntries();
+  }, []);
+  if (error) {return <span>Oups, il y eu un problème</span>}
 
-    return (
-        <div className="over">
-            <h1>Mes clichés</h1>
+  return (
+    <div className="over">
+           <h1>Mes clichés</h1>
             
             {isDataLoading ? (
                 <div className="galery">
@@ -45,21 +37,20 @@ function Cards() {
                 </div>
         ) : (
             <div className="cards">
-            {picturesList?.map((image) => (
-                <Link key ={`picture-${image.id}`}to={`/textpage/${image.id}` }
-                
-                style={{ textDecoration: 'none' }}>
+            {entries?.map((entry, index) => (
+                <Link ey={index} to={`/textpage/${entry._id}`}>
                 <Card
-                  title={image.title}
-                  url={image.url}
-            />
+                  title={entry.title}
+                  url={entry.url}
+                />
               </Link>
-            ))}
+        )   )}
             </div>
         )}
             
-        </div>
-    )
-}
+     </div>
+    
+  );
+};
 
 export default Cards;

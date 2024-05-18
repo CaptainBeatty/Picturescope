@@ -13,7 +13,7 @@ function Footer() {
         <>
         <div className="Footer">
             <div className="copyright">
-                <p>© 2023 PictureScope. All rights reserved</p>
+                <p>Design by CaptainBeatty. All rights reserved</p>
             </div>
             <div className="contact" >
                 <a href="mailto:picturescope@gmail.com">

@@ -1,49 +1,36 @@
 import "../../Styles/TextPage.css"
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import DeleteImgBtn from '../../Components/DeleteImgBtn'
 
-
-
-function TextPage() {
-
-    // const { id } = useParams();
-    // const [images, setImages] = useState(null);
-    
-    // useEffect(() => {
-    //     fetch(`http://localhost:8000/images`)
-    //       .then(response => response.json())
-    //       .then(data => setImages(data))
-    //       .catch(error => console.error('Error fetching image:', error));
-    //   }, [id]);
-    //   return (
-    //     <div>
-    //       {images ? <Card src={images.url} alt={images.description}/> : <p>Loading...</p>}
-    //     </div>
-    //   );
-    // }
-    const { id: queryId } = useParams()
-    const [pictureData, setPictureData] = useState({})
-    useEffect(() => {
-      fetch(`https://picturescope-api.onrender.com/picture?id=${queryId}`)
-        .then((response) => response.json())
-        .then((jsonResponse) => {
-          setPictureData(jsonResponse?.pictureData)
-        })
-    }, [queryId])
+  const TextPage = () => {
+    const { id } = useParams();
+    const [entry, setEntry] = useState(null);
+    const history = useNavigate ();
   
-    const {
-      
-      url,
-      description,
-    } = pictureData
+    useEffect(() => {
+      const fetchEntry = async () => {
+        try {
+          const response = await fetch(`http://localhost:8000/pictures/${id}`);
+          const data = await response.json();
+          setEntry(data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+  
+      fetchEntry();
+    }, [id]);
+  
+    if (!entry) return <div className="loader">Loading...</div>;
   
     return (
-      <div className="Picture" >
-          <img src={url} alt={description} />
-     </div>
-    )
-  }
-  
-
-
+      <div>
+        <div className="Picture" >
+           <img src={entry.url} alt={entry.description} />
+        </div>
+        <DeleteImgBtn/>
+      </div>
+    );
+  };
 export default TextPage 

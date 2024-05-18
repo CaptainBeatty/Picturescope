@@ -3,7 +3,7 @@ import DefaultPicture from '../../assets/profile.png'
 import "../../Styles/Card.css";
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 
-function Card({ label, title, url }) {
+function Card({ title, url }) {
     const navigate = useNavigate(); // Hook pour la navigation
 
     const handleDivClick = () => {
@@ -12,19 +12,18 @@ function Card({ label, title, url }) {
     
     return (
         <div className='cardwrapper' onClick={handleDivClick}>
-            <span>{label}</span>
+            
             <img src={url} alt="freelance"/>
             <span>{title}</span>
         </div>
     )
 }
 Card.propTypes = {
-    label: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
 }
 Card.defaultProps = {
-    label: '',
+    
     title: '',
     url: DefaultPicture,
 }

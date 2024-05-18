@@ -1,17 +1,17 @@
 import React from "react";
-import Cards from '../../Components/Cards';
+import NewimageForm from '../../Components/NewimageForm';
 import "../../Styles/GalleryPage.css"
 
 
-function GalleryPage() {
+function NewimagePage() {
 
     return (
         <div className="App">
 
-            <Cards/>
+            <NewimageForm/>
             
         </div>
     )
 }
 
-export default GalleryPage() 
+export default NewimagePage() 
