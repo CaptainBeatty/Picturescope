@@ -12,13 +12,17 @@ function Navbar() {
         <div className="navbar">
             
             <div className="nav-links">
+            <NavLink exact to
+                    ="/newimagepage/" activeClassName="active"
+                >
+                    Add
+                </NavLink>
                 <NavLink exact to
                     ="/" activeClassName="active"
                 >
                     Gallery
                 </NavLink>
-                <NavLink
-                    to="/LoginPage" activeClassName="active"
+                <NavLink exact to="/LoginPage" activeClassName="active"
                 >
                     Login
                 </NavLink>

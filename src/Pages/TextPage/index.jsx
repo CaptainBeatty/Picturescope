@@ -1,12 +1,14 @@
 import "../../Styles/TextPage.css"
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import DeleteImgBtn from '../../Components/DeleteImgBtn'
+import DeletePutImg from '../../Components/DeletePutImg'
+import BackButton from '../../Components/BackButton';
+import ModifyButton from '../../Components/ModifyButton';
 
   const TextPage = () => {
     const { id } = useParams();
     const [entry, setEntry] = useState(null);
-    const history = useNavigate ();
+    const navigate = useNavigate ();
   
     useEffect(() => {
       const fetchEntry = async () => {
@@ -21,15 +23,28 @@ import DeleteImgBtn from '../../Components/DeleteImgBtn'
   
       fetchEntry();
     }, [id]);
+
+    
   
     if (!entry) return <div className="loader">Loading...</div>;
   
     return (
-      <div>
+      <div className="textpage">
         <div className="Picture" >
            <img src={entry.url} alt={entry.description} />
         </div>
-        <DeleteImgBtn/>
+        <div className="description" >
+          <h1>{entry.title}</h1>
+          <h2>Description:</h2>
+          <p> {entry.description}</p>
+          <h2>Device:</h2>
+          <p> {entry.device}</p>
+          <div>
+            <BackButton />
+            <ModifyButton id={id} />
+            <DeletePutImg/>
+          </div>
+        </div>
       </div>
     );
   };

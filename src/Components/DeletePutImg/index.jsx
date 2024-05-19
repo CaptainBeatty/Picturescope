@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate  } from 'react-router-dom';
 
-const DeleteImgBtn = () => {
+const DeletePutImg = () => {
   const { id } = useParams();
   const navigate = useNavigate ();
   const [entry, setEntry] = useState(null);
@@ -35,8 +35,6 @@ const DeleteImgBtn = () => {
     }
   };
 
-  if (!entry) return <div>Loading...</div>;
-
   return (
     <div>
       <button onClick={handleDelete}>Delete</button>
@@ -44,4 +42,4 @@ const DeleteImgBtn = () => {
   );
 };
 
-export default DeleteImgBtn;
+export default DeletePutImg;

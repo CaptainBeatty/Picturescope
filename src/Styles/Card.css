@@ -4,6 +4,12 @@
     overflow: scroll;
 }
 
+.over h1{
+    
+    display: flex;
+    justify-content: center;
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(4, auto);

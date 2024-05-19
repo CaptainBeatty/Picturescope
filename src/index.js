@@ -9,6 +9,7 @@ import TextPage from './Pages/TextPage';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import NewimagePage from './Pages/NewimagePage';
+import ModifyPage from './Pages/ModifyPage';
 
 //import CardPage from './Pages/CardPage';
 
@@ -23,6 +24,7 @@ root.render(
     <Route path="/loginpage/" element={LoginPage} />
     <Route path="/textpage/:id" element={<TextPage/>} />
     <Route path="/newimagepage/" element={NewimagePage} />
+    <Route path="/modify/:id" element={ModifyPage} />
     <Route path = "*" element ={<ErrorPage/>} /> 
     </Routes>
     <Footer/>

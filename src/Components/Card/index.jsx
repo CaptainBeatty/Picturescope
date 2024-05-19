@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import DefaultPicture from '../../assets/profile.png'
 import "../../Styles/Card.css";
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Card({ title, url }) {
     const navigate = useNavigate(); // Hook pour la navigation
@@ -12,7 +12,6 @@ function Card({ title, url }) {
     
     return (
         <div className='cardwrapper' onClick={handleDivClick}>
-            
             <img src={url} alt="freelance"/>
             <span>{title}</span>
         </div>
@@ -23,7 +22,6 @@ Card.propTypes = {
     url: PropTypes.string.isRequired,
 }
 Card.defaultProps = {
-    
     title: '',
     url: DefaultPicture,
 }
