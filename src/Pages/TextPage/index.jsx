@@ -12,8 +12,14 @@ import ModifyButton from '../../Components/ModifyButton';
   
     useEffect(() => {
       const fetchEntry = async () => {
+        const token = localStorage.getItem('authToken');
         try {
-          const response = await fetch(`http://localhost:8000/pictures/${id}`);
+          const response = await fetch(`http://localhost:8000/pictures/${id}`,{
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+            });
           const data = await response.json();
           setEntry(data);
         } catch (error) {

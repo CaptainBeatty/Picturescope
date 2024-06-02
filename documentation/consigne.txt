@@ -1,0 +1,7 @@
+A suivre:
+
+Impossible de comprendre pourquoi on peut modifier un objet avec n'importe qul compte.
+
+Idée: faire un sevrice crud qui prend en compte le jwt token
+
+Apres avoir modifié un objet avec le frontend, j'ai remarqué que l'userid de l'image était modifé

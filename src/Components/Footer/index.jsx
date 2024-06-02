@@ -6,12 +6,11 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 function Footer() {
     
-
-    return (
+return (
         <>
         <div className="Footer">
             <div className="copyright">
-                <p>Design by CaptainBeatty. All rights reserved</p>
+                <p>Developed by CaptainBeatty</p>
             </div>
             <div className="contact" >
                 <a href="mailto:picturescope@gmail.com">

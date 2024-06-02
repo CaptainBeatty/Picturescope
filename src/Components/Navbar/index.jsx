@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../../Styles/navigation.css"
-//import { CButtonGroup, CDropdownToggle, CDropdown, CDropdownMenu, CDropdownItem, CDropdownDivider} from '@coreui/react';
+import UserEmail from "../UserEmail"
+import AuthButton from "../AuthButton"
 
 
 
@@ -10,7 +11,7 @@ function Navbar() {
     return (
         
         <div className="navbar">
-            
+            <UserEmail />
             <div className="nav-links">
             <NavLink exact to
                     ="/newimagepage/" activeClassName="active"
@@ -22,10 +23,8 @@ function Navbar() {
                 >
                     Gallery
                 </NavLink>
-                <NavLink exact to="/LoginPage" activeClassName="active"
-                >
-                    Login
-                </NavLink>
+                <AuthButton />
+
             </div>
             {/*<div>
             <CButtonGroup role="group" aria-label="Button group with nested dropdown">

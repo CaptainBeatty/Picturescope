@@ -1,50 +1,42 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
-
-
-const LoginForm = () => {
+const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  
 
   const handleSubmit = async (event) => {
-    
     event.preventDefault();
-    
+
+    const data = { email, password };
+
     try {
-      const response = await fetch('http://localhost:8000/auth/login', {
+      const response = await fetch('http://localhost:8000/auth/signup', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(data),
       });
       if (response.ok) {
-        const data = await response.json();
-       
-        const { token, userId } = data;
-        // Stocker le token et l'email dans le stockage local
-        localStorage.setItem('authToken', token);
-        localStorage.setItem('userId', userId); // Stockage de l'userId
-        localStorage.setItem('email', email);
+        const result = await response.json();
+        alert('User registered successfully!');
+        console.log('Token:', result.token); // Vous pouvez stocker le token dans le stockage local ou dans l'état
+        // Stocker le token dans le stockage local
+        localStorage.setItem('token', result.token);
         setEmail('');
         setPassword('');
-        console.log(token); 
-        alert('User logged in successfully!');
-        // Rediriger vers la page d'accueil
-        navigate('/');
+        navigate('/loginpage');
         // Recharger la page pour mettre à jour l'affichage
         window.location.reload();
       } else {
         const result = await response.json();
-        alert('Failed to log in: ' + result.msg);
+        alert('Failed to register user: ' + result.msg);
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Error logging in');
+      alert('Error registering user');
     }
   };
 
@@ -52,9 +44,9 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit}>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter email" required />
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter password" required />
-      <button type="submit">Login</button>
+      <button type="submit">Register</button>
     </form>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

@@ -1,52 +1,103 @@
 import React, { useState } from 'react';
-import "../../Styles/NewimagePage.css"
+
 
 const NewimageForm = () => {
   const [url, setUrl] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [device, setDevice] = useState('');
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    
 
-    // Ici, nous utilisons JSON pour envoyer les données, ce qui est approprié pour les données textuelles.
-    const data = {
-      url: url,
-      title: title,
-      description: description,
-      device: device
-    };
+    const token = localStorage.getItem('authToken');
+    const userId = localStorage.getItem('userId');
 
-    fetch('http://localhost:8000/pictures', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-      alert('Details uploaded successfully!');
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Error uploading details');
-    });
+    if (!token || !userId)  {
+      setError("Une erreur s'est produite");
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:8000/pictures', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+          'X-User-Id': userId
+        },
+        body: JSON.stringify({
+          url,
+          title,
+          description,
+          device,
+          userId
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur de la requête', alert('Erreur lors de la création'));
+      }
+
+      const responseData = await response.json();
+      setData(responseData);
+      setUrl('');
+      setTitle('');
+      setDescription('');
+      setDevice('');
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
-    
-      <form onSubmit={handleSubmit} className='form'>
-        <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="Enter URL" />
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title" />
-        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Enter description" />
-        <input type="text" value={device} onChange={(e) => setDevice(e.target.value)} placeholder="Enter device" />
-        <button type="submit">Add image</button>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>URL:</label>
+          <input 
+            type="text" 
+            value={url} 
+            onChange={(e) => setUrl(e.target.value)} 
+            required 
+          />
+        </div>
+        <div>
+          <label>Title:</label>
+          <input 
+            type="text" 
+            value={title} 
+            onChange={(e) => setTitle(e.target.value)} 
+            required 
+          />
+        </div>
+        <div>
+          <label>Description:</label>
+          <textarea 
+            value={description} 
+            onChange={(e) => setDescription(e.target.value)} 
+            required 
+          />
+        </div>
+        <div>
+          <label>Device:</label>
+          <input 
+            type="text" 
+            value={device} 
+            onChange={(e) => setDevice(e.target.value)} 
+            required 
+          />
+        </div>
+        <button type="submit">Enregistrer</button>
       </form>
-    
+      {data && <div>Réponse: {JSON.stringify(data)}</div>}
+      {error && <div>Erreur: {error}</div>}
+    </div>
   );
 };
+
 
 export default NewimageForm;
