@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate  } from 'react-router-dom';
 
 const DeletePutImg = () => {
@@ -15,7 +15,6 @@ const DeletePutImg = () => {
     const fetchData = async () => {
       const token = localStorage.getItem('authToken');
       
-
       if (!token) {
         setError('Token non trouvé');
         return;

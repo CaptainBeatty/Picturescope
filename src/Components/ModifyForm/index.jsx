@@ -12,6 +12,7 @@ const ModifyForm = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const fetchEntry = async () => {

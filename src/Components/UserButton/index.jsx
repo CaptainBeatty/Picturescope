@@ -1,19 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-import  { useState, useEffect } from 'react';
-
-
-const ModifyButton = ({ id }) => {
+const UserButton = ({ Id }) => {
   const [picture, setPicture] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [userId, setUserId] = useState(null);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     const fetchData = async () => {
-      const token = localStorage.getItem('authToken');
+      const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
       setUserId(userId);
 
@@ -23,7 +18,7 @@ const ModifyButton = ({ id }) => {
       }
 
       try {
-        const response = await fetch(`http://localhost:8000/pictures/${id}`, {
+        const response = await fetch(`http://localhost:8000/pictures/${Id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -45,27 +40,20 @@ const ModifyButton = ({ id }) => {
     };
 
     fetchData();
-  }, [id]);
+  }, [Id]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   const isCreator = picture.userId === userId;
-  
-  const handleModify = () => {
-    navigate(`/modify/${id}`);
-  };
-  
 
   return (
-    <button
-      onClick={handleModify}
-      // disabled={!isCreator}
-      style={{ backgroundColor: !isCreator ? 'grey' : 'blue', cursor: !isCreator ? 'not-allowed' : 'pointer' }}
-    >
-      Modify
-    </button>
+    <div>
+      <button disabled={!isCreator} style={{ backgroundColor: !isCreator ? 'grey' : 'blue' }}>
+        Edit Picture
+      </button>
+    </div>
   );
 };
 
-export default ModifyButton;
+export default UserButton;
