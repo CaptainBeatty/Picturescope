@@ -55,17 +55,22 @@ const ModifyButton = ({ id }) => {
   const handleModify = () => {
     navigate(`/modify/${id}`);
   };
-  
 
+  if (isCreator){
   return (
-    <button
-      onClick={handleModify}
-      // disabled={!isCreator}
-      style={{ backgroundColor: !isCreator ? 'grey' : 'blue', cursor: !isCreator ? 'not-allowed' : 'pointer' }}
-    >
-      Modify
-    </button>
-  );
+      <button
+        onClick={handleModify}
+      >
+        Modify
+      </button>
+    )
+  } else {
+      return (
+        <button disabled style={{ backgroundColor: 'grey' }}>
+        Modify
+      </button>
+      );
+    }
 };
 
 export default ModifyButton;
