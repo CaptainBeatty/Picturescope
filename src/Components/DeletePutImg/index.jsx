@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate  } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const DeletePutImg = () => {
   const { id } = useParams();
@@ -9,12 +9,18 @@ const DeletePutImg = () => {
   const [device, setDevice] = useState('');
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [picture, setPicture] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [userId, setUserId] = useState(null);
+
   const navigate = useNavigate();
 
-   useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem('authToken');
-      
+      const userId = localStorage.getItem('userId');
+      setUserId(userId);
+
       if (!token) {
         setError('Token non trouvé');
         return;
@@ -34,53 +40,20 @@ const DeletePutImg = () => {
         }
 
         const responseData = await response.json();
+        setPicture(responseData);
         setUrl(responseData.url);
         setTitle(responseData.title);
         setDescription(responseData.description);
         setDevice(responseData.device);
+        setLoading(false);
       } catch (err) {
         setError(err.message);
+        setLoading(false);
       }
     };
 
     fetchData();
   }, [id]);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const token = localStorage.getItem('authToken');
-
-    if (!token) {
-      setError('Token non trouvé');
-      return;
-    }
-
-    try {
-      const response = await fetch(`http://localhost:8000/pictures/${id}`, {
-        method: 'PUT', // or 'PATCH' if you only want to update specific fields
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          url,
-          title,
-          description,
-          device
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error('Erreur de la requête');
-      }
-
-      const responseData = await response.json();
-      setData(responseData);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
 
   const handleDelete = async () => {
     const token = localStorage.getItem('authToken');
@@ -106,22 +79,31 @@ const DeletePutImg = () => {
       setData(null); // Clear data after deletion
       alert('Objet supprimé avec succès');
       navigate('/');
-        // Recharger la page pour mettre à jour l'affichage
-      window.location.reload();
     } catch (err) {
       setError(err.message);
     }
   };
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <button type="button" onClick={handleDelete}>Delete</button>
-      </form>
-      {data && <div>Réponse: {JSON.stringify(data)}</div>}
-      {error && <div>Erreur: {error}</div>}
-    </div>
-  );
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  const isCreator = picture.userId === userId;
+
+  if (isCreator){
+    return (
+        <button
+          onClick={handleDelete}
+        >
+          Delete
+        </button>
+      )
+    } else {
+        return (
+          <button disabled style={{ backgroundColor: 'grey' }}>
+          Delete
+        </button>
+        );
+      }
 };
 
 export default DeletePutImg;
