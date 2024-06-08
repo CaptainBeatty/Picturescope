@@ -12,6 +12,7 @@ const DeletePutImg = () => {
   const [picture, setPicture] = useState(null);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(null);
+  const [isConnected, setIsConnected] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,9 +21,11 @@ const DeletePutImg = () => {
       const token = localStorage.getItem('authToken');
       const userId = localStorage.getItem('userId');
       setUserId(userId);
+      setIsConnected(!!token);
 
       if (!token) {
-        setError('Token non trouvé');
+        setLoading(false);
+        setError('Utilisateur non connecté');
         return;
       }
 
@@ -85,9 +88,10 @@ const DeletePutImg = () => {
   };
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  
 
-  const isCreator = picture.userId === userId;
+  const isCreator = picture  && picture.userId === userId;
+  
 
   if (isCreator){
     return (
@@ -96,6 +100,13 @@ const DeletePutImg = () => {
         >
           Delete
         </button>
+      )
+      
+    } else if (!isConnected) {
+      return (
+        <button disabled style={{ backgroundColor: 'grey' }}>
+        Delete
+      </button>
       )
     } else {
         return (
